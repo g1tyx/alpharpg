@@ -15,7 +15,7 @@ var cnItems = {
     'Green': '绿色',
     'height': '高度',
     'Action': '动作',
-    'AlphaRPG': '阿尔法RPG',
+//    'AlphaRPG': '阿尔法RPG',
     'Attack': '攻击',
     'Mission': '任务',
     'Missions': '任务',
