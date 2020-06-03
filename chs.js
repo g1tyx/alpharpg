@@ -15,7 +15,7 @@ var cnItems = {
     'Green': '绿色',
     'height': '高度',
     'Action': '动作',
-//    'AlphaRPG': '阿尔法RPG',
+    //    'AlphaRPG': '阿尔法RPG',
     'Attack': '攻击',
     'Mission': '任务',
     'Missions': '任务',
@@ -85,7 +85,7 @@ var cnItems = {
     'width': '宽度',
     'xPos': '',
     'Kill': '杀死',
-    '\n                                    Keys\n                               ': '快捷键',
+    'Keys\n                               ': '快捷键',
     '\n                                    Relics\n                               ': '圣遗物',
     '\n                                You\n                                can choose a custom color for your name,\n                                just change the': '',
     'ADVANCED': '高级',
@@ -210,6 +210,7 @@ var cnPrefix = {
     "+": "+",
     " ": " ",
     ": ": "： ",
+    "\n                                    ": "",
 }
 
 //需处理的后缀
@@ -254,5 +255,5 @@ var cnRegReplace = new Map([
     [/^Armor (\d+) stats$/, '护甲 $1 属性'],
     [/^([\d\.]+) Fragments$/, '$1 片段'],
     [/^(\d+)\/(\d+) Missions completed.$/, '$1\/$2 任务已完成.'],
-    
+
 ]);
