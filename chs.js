@@ -123,6 +123,7 @@ var cnItems = {
     'Empire Road': '帝国之路',
     'Epic': '史诗',
     'Exotic': '传说',
+    'Divine': '神圣',
     'EXP Multiplier': '经验加成倍数',
     'Exploration': '探索',
     'Exploration': '探索',
@@ -472,7 +473,7 @@ var cnPrefix = {
     'Lower': '低级',
     'Used': '二手',
     'Single': '单手',
-    'Higher': '高级',
+    'Higher': '高等',
     'Lucky': '幸运',
     'Premium': '优质',
     'Slow': '减速',
@@ -489,8 +490,10 @@ var cnPrefix = {
     'Blessed': '祝福',
     'Destiny': '命运',
     'Guardian': '守护',
+    'Deca': '全能',
     'Magic': '魔法',
     'Relic': '圣遗物',
+    'Exotic': '传说',
     'Current Base': '当前基础',
 }
 
