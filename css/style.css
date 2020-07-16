@@ -400,19 +400,11 @@ div#C1.active, div#C2.active, div#C3.active, div#C4.active, div#C5.active {
   border-color: var(--green);
 }
 
-.noselect {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Chrome and Opera */
+.noselect, .ui.modal {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  user-select: none !important;
 }
 
 .ui.buttons .or:before {
@@ -430,7 +422,7 @@ div#C1.active, div#C2.active, div#C3.active, div#C4.active, div#C5.active {
 }
 
 .ui.message {
-  background-color: var(--black2);
+  background-color: var(--darkgrey5);
   padding: 0em 0em !important;
   color: var(--white) !important;
 }
@@ -561,8 +553,8 @@ div#C1.active, div#C2.active, div#C3.active, div#C4.active, div#C5.active {
   color: var(--white);
   height: 40px;
 }
-.ui.card>.extra .fluid.ui.buttons,
-.ui.card>.extra .fluid.ui.icon.rainbow {
+
+.ui.card>.extra .fluid.ui.buttons, .ui.card>.extra .fluid.ui.icon.rainbow {
   position: absolute;
   left: 0;
   right: 0;
@@ -580,7 +572,6 @@ div#C1.active, div#C2.active, div#C3.active, div#C4.active, div#C5.active {
 }
 
 .ui.label, .ui.image.label {
-  vertical-align: middle !important;
   background: var(--darkgrey5);
   color: var(--white);
   border-radius: 5px;
@@ -625,15 +616,6 @@ div#C1.active, div#C2.active, div#C3.active, div#C4.active, div#C5.active {
   background: var(--darkgrey5) !important;
   color: var(--white) !important;
   margin: 1% 1% 1% 1% !important
-}
-
-.BUTTONS_ACTIONS {
-  position: relative;
-  width: 95.5%;
-  left: 2%;
-  padding: 2% 0% 0% 0%;
-  background-color: transparent !important;
-  user-select: none;
 }
 
 #gamemenu {
@@ -1189,17 +1171,6 @@ i.discord.icon {
   border-radius: 5px !important;
 }
 
-#EnemySprite {
-  background-color: var(--darkgrey);
-  width: 100px;
-  height: 100px;
-  border-radius: 5px;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 19;
-  position: relative;
-}
-
 .bgmask {
   position: fixed;
   top: 0;
@@ -1470,15 +1441,10 @@ i.discord.icon {
   box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 var(--darkgrey5) inset;
 }
 
-.AL-M {
-  position: relative !important;
+.AL-M, .ui.grid.modified {
   background: linear-gradient(to right, var(--darkgrey), transparent) !important;
-  box-shadow: none !important;
-  border-radius: 10px !important;
-}
-
-#MissionsList, #DIV-EXPLORE, #DIV-MENU {
-  padding: 5px 10px;
+  border-radius: 5px !important;
+  margin: 5px 0 !important;
 }
 
 .ui.green.label, .ui.green.labels .label {
@@ -1492,7 +1458,6 @@ i.discord.icon {
   line-height: 40px;
   font-weight: 500;
   width: 100% !important;
-  margin: 5px 0 0 0;
   padding: 0;
 }
 
@@ -1566,4 +1531,195 @@ img[src*="E.png"]:before, .error-img:before {
 
 #DIV-STATS .ui.horizontal.segments:hover {
   background-color: var(--darkgrey5);
+}
+
+#EnemyTitle .ui.basic.label {
+  padding: 5px 3.5px;
+  border: none;
+}
+
+.column.type_card .card {
+  margin: 0 auto;
+  position: relative;
+  background: var(--darkgrey5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.column.type_card .card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .5);
+}
+
+.column.type_card .card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, .03);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.column.type_card .card_content {
+  position: relative;
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 50px var(--grey);
+  background: var(--grey);
+  z-index: 100;
+}
+
+.column.type_card .card_content .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.column.type_card .card_content .number h2 {
+  position: absolute;
+  font-weight: 700;
+  font-size: 16px;
+  vertical-align: middle;
+  margin: 0;
+  top: 75px;
+  left: 155px;
+  bottom: 75px;
+  transition: 0.5s;
+}
+
+.column.type_card .card_content .number h2 span {
+  transition: 0.5s;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.column.type_card .text {
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.column.type_card .card:hover .text, .column.type_card .card:hover .card_content .number h2, .column.type_card .card:hover .card_content .number h2 span {
+  font-size: 14px;
+  color: white;
+}
+
+.column.type_card svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  z-index: 1000;
+}
+
+.column.type_card circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--grey);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transform: translate(5px, 5px);
+}
+
+.column.type_card circle:nth-child(2) {
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+}
+
+.column.type_card #PlayerCard.card .Percentage {
+  stroke-dashoffset: calc(440 - (440 * 100) / 100);
+  stroke: #0fb13a;
+}
+
+.column.type_card #EnemyCard.card .Percentage {
+  stroke-dashoffset: calc(440 - (440 * 100) / 100);
+  stroke: #b30e0e;
+}
+
+.ui.modal:not(.basic)>.header, .ui.modal:not(.basic)>.content, .ui.modal:not(.basic) {
+  background: var(--darkgrey);
+}
+
+.ui.modal:not(.basic)>.header {
+  border-radius: 5px 5px 0 0;
+}
+
+.ui.modal:not(.basic)>.content {
+  border-radius: 0 0 5px 5px;
+}
+
+#GAME {
+  margin-bottom: 30px;
+}
+
+.fa, .fas {
+  font-family: "Font Awesome 5 Pro" !important;
+  font-weight: 900 !important;
+}
+
+.ui.labeled.icon.button, .ui.labeled.icon.buttons .button {
+  padding-left: 2.55em!important;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+#DIV-EXPLORE .AL-M .ui.segments {
+  background-color: var(--grey5) !important;
+} 
+
+#GAME>.row>.three.wide.column .rainbow7.active, #GAME>.row>.three.wide.column .rainbow7:hover, #GAME>.row>.three.wide.column .rainbow7.active:hover {
+  border-bottom: none!important;
+  border-right: 1px solid var(--green)!important;
+}
+
+#INVENTORY-VIEWS .column:not(.row) {
+  padding: 5px;
+  background-color: var(--grey5);
+  border: 1px solid var(--borders);
+}
+
+#INVENTORY-VIEWS .column:not(.row):nth-child(1) {
+  border-width: 0px 1px 1px 0px;
+}
+
+#INVENTORY-VIEWS .column:not(.row):nth-child(2) {
+  border-width: 0px 0px 1px 0px;
+}
+
+#INVENTORY-VIEWS .column:not(.row):nth-child(3) {
+  border-width: 0px 1px 0px 0px;
+}
+
+#INVENTORY-VIEWS .column:not(.row):nth-child(4) {
+  border-width: 0px 0px 0px 0px;
+}
+
+.ui.card.customcard>.content, .ui.card.customcard>.image {
+  background: var(--grey5);
+}
+
+#CREDITS {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  right: 15px;
+}
+
+#GAME>.row>.three.wide.column {
+  height: calc(100vh - 50px);
 }
