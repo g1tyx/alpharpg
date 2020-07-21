@@ -49,7 +49,7 @@ function exportTheme() {
 }
 
 function importTheme() {
-  var save = prompt("Paste your theme code here");
+  var save = prompt("在这里粘贴你的主题代码");
   if (save) {
     try {
       var decoded = atob(save);
@@ -66,7 +66,7 @@ function importTheme() {
 }
 
 function importSave() {
-  var save = prompt("Paste your save code here");
+  var save = prompt("在这里粘贴你的存档代码");
   if (save) {
     restoreSave(save);
   }
