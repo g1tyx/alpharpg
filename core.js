@@ -173,7 +173,6 @@ function test() {
   if (location.href.match(/(goldenlys.github.io).*/)) window.oncontextmenu = (e) => { e.preventDefault(); };
   ResetTheme(0);
   if (localStorage.getItem("Alpha") != null) load();
-  if (localStorage.getItem("Alpha-Backup") != null) loadBackup();
   if (Game.username != "Default") {
     $("#GAME").show();
     $("#STARTING-DIV").hide();
@@ -188,12 +187,9 @@ function test() {
   $('.ui.checkbox').checkbox();
   if (Game.config[0] == 1) $("#AlertToggle").checkbox("check"); else $("#AlertToggle").checkbox("uncheck");
   if (Game.config[1] == 1) $("#AlertToggle2").checkbox("check"); else $("#AlertToggle2").checkbox("uncheck");
-  if (Game.AutoRemove[0] == 1) $("#RM1").checkbox("check"); else $("#RM1").checkbox("uncheck");
-  if (Game.AutoRemove[1] == 1) $("#RM2").checkbox("check"); else $("#RM2").checkbox("uncheck");
-  if (Game.AutoRemove[2] == 1) $("#RM3").checkbox("check"); else $("#RM3").checkbox("uncheck");
-  if (Game.AutoRemove[3] == 1) $("#RM4").checkbox("check"); else $("#RM4").checkbox("uncheck");
-  if (Game.AutoRemove[4] == 1) $("#RM5").checkbox("check"); else $("#RM5").checkbox("uncheck");
-  if (Game.AutoRemove[5] == 1) $("#RM6").checkbox("check"); else $("#RM6").checkbox("uncheck");
+  for (let AUTO_REMOVE in Game.AutoRemove) {
+    if (Game.AutoRemove[AUTO_REMOVE] == 1) $("#RM" + AUTO_REMOVE).checkbox("check"); else $("#RM" + AUTO_REMOVE).checkbox("uncheck");
+  }
   if (Game.config[2] == 1) $("#SkipRewards").checkbox("check"); else $("#SkipRewards").checkbox("uncheck");
   if (Game.config[3] == 1) $("#AutoMissions").checkbox("check"); else $("#AutoMissions").checkbox("uncheck");
   if (Game.config[4] == 1) $("#OnlyMyVersion").checkbox("check"); else $("#OnlyMyVersion").checkbox("uncheck");
@@ -221,12 +217,12 @@ function GetWBcontent(reason) {
 }
 
 function UpdateEngine() {
-  if (Game.username != "Default" && APP.LoggedIn == 0 && APP.Email != "DoNotLogin" && location.href.match(/(goldenlys.github.io).*/)) GetWBcontent("retour");
+  if (Game.username != "Default" && APP.LoggedIn == 0 && APP.Email != "DoNotLogin") GetWBcontent("retour");
   UpdateGame();
   Game.PlayTime++;
   if (Game.Level >= APP.MaxLevel && APP.LastMission >= APP.TotalMissions) APP.ScoreModeEnabled = 1; else APP.ScoreModeEnabled = 0;
   if (Ennemies[Game.Location][Game.Enemy[0]] == undefined) Game.Enemy[0] = 0;
-  if (Game.Level == 1 && !Game.MissionStarted[0] && Game.MissionsCompleted[0] == 0 && Game.config[3] == 1) mission(0);
+  if (Game.Level == 1 && !Game.MissionStarted[0] && Game.MissionsCompleted[0] == 0 && Game.config[3] == 1 && $("#STARTING-DIV").is(":hidden") && $("#modal-5").is(":hidden")) mission(0);
   if (Game.isInFight == 1) $("#EnemySprite").html("<img class='ui rounded middle aligned medium image' src='DATA/Monsters/" + Game.Location + "-" + Game.Enemy[0] + ".png'>");
   $("#color-display").css("background-color", "rgb(" + $(red).val() + ", " + $(green).val() + ", " + $(blue).val() + ")");
   if (APP.CoreLife > APP.CoreBaseLife) {
@@ -289,29 +285,17 @@ function UpdateEngine() {
   $("#PlayerSprite").html("<img class='ui small circular image' src='DATA/avatars/avatar" + Game.Avatar + ".jpg'>");
   $("#avatar2").html("<img class='' src='DATA/avatars/avatar" + Game.Avatar + ".jpg'>");
   $("#avatar3").html("<img class='' src='DATA/avatars/avatar" + Game.Avatar + ".jpg'>");
-  if ($('#DIV-COMBAT').is(":visible") && Game.isInFight == 1) {
-    $("#CLOSE_REWARDS").hide();
-    $("#BUTTONS_COMBAT").show();
-  }
-  if ($('#DIV-REWARDS').is(":visible")) {
-    Game.isInFight = 2;
-    $("#CLOSE_REWARDS").show();
-    $("#BUTTONS_COMBAT").hide();
-  }
   if (Game.isInFight == 1 && APP.CoreLife <= 0) LoseFight(); else if (Game.isInFight == 1 && Game.Enemy[5] <= 0) WinFight();
   for (var I in Game.inventory) {
-    if (I > Game.MaxInv) {
-      Game.inventory.splice(I, 1);
-    } else {
-      if (APP.ScoreModeEnabled == 0) {
-        if (Game.inventory[I].level > Game.Level) { Game.inventory.splice(I, 1); }
-      }
+    if (I > Game.MaxInv) Game.inventory.splice(I, 1);
+    else if (APP.ScoreModeEnabled == 0) {
+      if (Game.inventory[I].level > Game.Level) Game.inventory.splice(I, 1);
     }
-    for (var IV2 in Game.inventory) {
-      if (Game.inventory[I].id == 1 || Game.inventory[I].id == 3) {
-        if (Game.inventory[I].life == Game.inventory[IV2].life && Game.inventory[I].power == Game.inventory[IV2].power && IV2 != I && Game.inventory[I].name == Game.inventory[IV2].name && Game.inventory[I].id != 3) {
-          Game.inventory.splice(I, 1);
-        }
+  }
+  for (var IV2 in Game.inventory) {
+    if (Game.inventory[I].id == 1 || Game.inventory[I].id == 3) {
+      if (Game.inventory[I].life == Game.inventory[IV2].life && Game.inventory[I].power == Game.inventory[IV2].power && IV2 != I && Game.inventory[I].name == Game.inventory[IV2].name && Game.inventory[I].id != 3) {
+        Game.inventory.splice(I, 1);
       }
     }
   }
@@ -453,8 +437,8 @@ function UpdateUI() {
   var LIFEMCOL = GetMultPrice(2) > Game.Shards ? "rouge" : "green";
   var INVCOL = GetMultPrice(3) > Game.Shards ? "rouge" : "green";
   $("#XPMULTPRICE").html("<span class='" + XPMCOL + "'><i class='dna icon'></i>" + GetMultPrice(0) + "</span>");
-  $("#APP.PowerMultPRICE").html("<span class='" + POWMCOL + "'><i class='dna icon'></i>" + GetMultPrice(1) + "</span>");
-  $("#APP.LifeMultPRICE").html("<span class='" + LIFEMCOL + "'><i class='dna icon'></i>" + GetMultPrice(2) + "</span>");
+  $("#POWERMULTPRICE").html("<span class='" + POWMCOL + "'><i class='dna icon'></i>" + GetMultPrice(1) + "</span>");
+  $("#LIFEMULTPRICE").html("<span class='" + LIFEMCOL + "'><i class='dna icon'></i>" + GetMultPrice(2) + "</span>");
   $("#INVUPGPRICE").html("<span class='" + INVCOL + "'><i class='dna icon'></i>" + GetMultPrice(3) + "</span>");
   for (var i = 0; i < 4; i++) {
     if (GetMultPrice(i) == 999999999) {
@@ -926,7 +910,6 @@ function WinFight() {
     let LOOT_RATES = [50, 15, 45];
     if (Game.MissionStarted[0]) LOOT_RATES = Missions[Game.MissionStarted[1]][3] == 1 ? [5, 7.5, 10] : [40, 20, 30];
     let MIN_LOOT_QUALITY = ["", "Normal", "Common", "Uncommon", "Rare", "Epic", "Exotic", "Divine"];
-    var REWARDTEXT = "";
     let COUNTED_LOOTS = 0;
     $("#rewards-loot").html("");
 
@@ -952,14 +935,14 @@ function WinFight() {
       Game.xp[0] += Math.round(expGain);
       if (Game.xp[0] >= Game.xp[1]) {
         Game.Level++;
-        LEVELUP = "<br><font class='bleu'>LEVEL UP ! (<span class='blanc'>" + Game.Level + "</span>)</font><br>";
+        LEVELUP = "<div class='ui blue label'>LEVEL UP (" + Game.Level + ")</div>";
       }
       UpdateGame();
     }
     //EMP LOOT CHANCE
     var ELOOTCHANCE = random(1, 100);
     EMPCount = random(1, 3);
-    if (ELOOTCHANCE <= 25 && Game.Emp < 50) { Game.Emp += EMPCount; EMP = "<br>+<span class='orange'>" + EMPCount + "</span><i class='orange bolt icon'></i>Special Attack"; }
+    if (ELOOTCHANCE <= 25 && Game.Emp < 50) { Game.Emp += EMPCount; EMP = "<div class='ui yellow label'><i class='bolt icon'></i>" + EMPCount + " Special Attack(s)</div>"; }
 
     if (Game.Enemy[1] >= 6 && !Game.MissionStarted[0]) LOOT_RATES[0] = 1;
 
@@ -980,10 +963,8 @@ function WinFight() {
             else newItem(0, random((APP.Ranking - 10) + Game.Enemy[1], (APP.Ranking + 5) + Game.Enemy[1]), "Exotic");
           }
         } else {
-          if (Game.Enemy[1] == 1 || Game.Enemy[1] == 2 || Game.Enemy[1] == 3 || Game.Enemy[1] == 4) newItem(0, random((APP.Ranking - 10) + Game.Enemy[1], (APP.Ranking + 5) + Game.Enemy[1]), "Rare");
-          if (Game.Enemy[1] == 5) newItem(0, random((APP.Ranking - 10) + Game.Enemy[1], (APP.Ranking + 5) + Game.Enemy[1]), "Epic");
-          if (Game.Enemy[1] == 6) newItem(0, random((APP.Ranking - 10) + Game.Enemy[1], (APP.Ranking + 5) + Game.Enemy[1]), "Exotic");
-          if (Game.Enemy[1] == 7) newItem(0, random((APP.Ranking - 10) + Game.Enemy[1], (APP.Ranking + 5) + Game.Enemy[1]), "Divine");
+          if (Game.Enemy[1] < 5) newItem(0, random((APP.Ranking - 10) + Game.Enemy[1], (APP.Ranking + 5) + Game.Enemy[1]), "Rare");
+          else newItem(0, random((APP.Ranking - 10) + Game.Enemy[1], (APP.Ranking + 5) + Game.Enemy[1]), MIN_LOOT_QUALITY[Game.Enemy[1]]);
         }
       }
       let ITEMID = (Game.inventory.length - 1) < Game.MaxInv ? (Game.inventory.length - 1) : Game.MaxInv;
@@ -1040,30 +1021,25 @@ function WinFight() {
         if (ITEMID < Game.MaxInv) { $("#rewards-loot").append("<div class='ui comments'><div class='comment " + Game.inventory[ITEMID].class + "-Core'><div class='Bar-" + Game.inventory[ITEMID].class + "'></div>" + Game.inventory[ITEMID].name + "<br><span class='" + Game.inventory[ITEMID].class + "'>" + Game.inventory[ITEMID].class + "</span><br>" + descitem + "</div></div>"); }
       }
     }
-    var INVENTORYFULL = (Game.inventory.length - 1) < Game.MaxInv ? "" : "Inventory full, you can\'t recover any new item.";
+    let INVENTORYFULL = (Game.inventory.length - 1) < Game.MaxInv ? "" : "Inventory full, you can\'t recover any new item.";
     $("#rewards-loot").append(INVENTORYFULL);
-    if (COUNTED_LOOTS == 0) $("#rewards-loot").html(REWARDTEXT + "<br>" + INVENTORYFULL);
+    if (COUNTED_LOOTS == 0) $("#rewards-loot").html("<br>" + INVENTORYFULL);
     Game.isInFight = 2;
     var ToAddCash = Math.floor(random(1 * (Game.Enemy[2] - 5), Game.Enemy[1] * Game.Enemy[2]));
     if (ToAddCash < 1) ToAddCash = 1;
     Game.Cash += ToAddCash;
 
-    let THREATS = ["NORMAL", "ADVANCED", "SUPERIOR", "VETERAN", "ELITE", "BOSS", "GOD"];
+    let THREATS = ["", "NORMAL", "ADVANCED", "SUPERIOR", "VETERAN", "ELITE", "BOSS", "GOD"];
     let ThreatLevel = THREATS[Game.Enemy[1]];
-    $("#EnemyDesc").html("<br><br>");
-    $("#rewards-title").html("<span class='vert'> " + Ennemies[Game.Location][Game.Enemy[0]] + " defeated !</span>");
-    $("#rewards-desc").html("<br>You have defeated " + fix(Game.Defeated[Game.Enemy[1]], 3) + " <div class='ui small Enemy" + Game.Enemy[1] + " basic label'><span class='Enemy" + Game.Enemy[1] + "'>" + ThreatLevel + "</span></div><br> " + LEVELUP + "+<i class='green dollar icon'></i>" + ToAddCash);
-    if (APP.ScoreModeEnabled == 0) {
-      $("#rewards-text").html("+<span class='vert bold'>" + fix(Math.floor(expGain), 5) + "</span> EXP " + EMP);
-      if (Game.Level >= POS[Game.Location][2]) $("#rewards-text").html(EMP);
-      if (Game.MissionStarted[0] && Game.Level >= POS[Missions[Game.MissionStarted[1]][8]][2]) $("#rewards-text").html(EMP);
-    }
-    else $("#rewards-text").html(EMP);
-    if (Game.config[2] == 1) hideRewards();
-    else {
-      NOTIFY($("#rewards-title").html(), $("#rewards-desc").html() + "<br>" + $("#rewards-text").html() + $("#rewards-loot").html());
-      hideRewards();
-    }
+    let DEATHS = Game.Loses == 0 ? 1 : Game.Loses;
+    let EXP_TEXT = APP.ScoreModeEnabled == 0 ? "<div class='ui themed label'>" + fix(Math.floor(expGain), 5) + " EXP</div>" : "";
+    if (Game.Level >= POS[Game.Location][2] || Game.MissionStarted[0] && Game.Level >= POS[Missions[Game.MissionStarted[1]][8]][2]) EXP_TEXT = "";
+
+    let REWARDS_TEXT = "You have defeated " + fix(Game.Defeated[Game.Enemy[1]], 3) + " <span class='Enemy" + Game.Enemy[1] + "'>" + ThreatLevel + "</span> enemies.<br>Current Ratio " + fix(Game.Wins / DEATHS, 7) + "<br><br>\
+    " + EXP_TEXT + LEVELUP + EMP + "<div class='ui darkgreen label'><i class='dollar icon'></i>" + ToAddCash + "</div>";
+
+    if (Game.config[2] == 0) NOTIFY("<span class='vert'> " + Ennemies[Game.Location][Game.Enemy[0]] + " defeated !</span>", REWARDS_TEXT + $("#rewards-loot").html());
+    hideRewards();
   }
 }
 
@@ -1224,7 +1200,6 @@ function DefineWeapon(type, selected) {
 }
 
 function ConfirmRelic(R, id) {
-  Game.isInFight = 8;
   var IRCOLOR = "rouge";
   var IRCOLOR2 = "rouge";
   if (Game.RLS[R][1] == Game.inventory[id].object && Game.RLS[R][2] > Game.inventory[id].bonus) IRCOLOR = "green";
