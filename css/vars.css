@@ -1,52 +1,20 @@
 :root {
-    --white: rgb(255, 255, 255);
-    --green: rgb(0, 255, 255);
-    --green2: rgb(0, 150, 180);
-    --red: rgb(255, 0, 0);
-    --orange: #ff9800;
-    --yellow: rgb(255, 255, 0);
-    --blue: rgb(0, 120, 255);
-    --pink: rgb(237, 34, 255);
-    --purple: rgb(137, 47, 255);
-    --borders: rgb(46, 46, 61);
-    --grey: rgb(28, 28, 36);
-    --grey5: rgba(28, 28, 36, .75);
-    --borders: rgb(46, 46, 61);
-    --darkgrey: rgb(50, 47, 56);
-    --darkgrey5: rgba(50, 47, 56, .75); 
-    --black: rgb(40, 43, 52);
-    --black8: rgba(40, 43, 52, 0.8);
-    --black6: rgba(40, 43, 52, 0.6);
-    --black4: rgba(40, 43, 52, 0.4);
-    --black2: rgba(40, 43, 52, 0.25);
-    --black1: rgba(40, 43, 52, 0.15);
-    --locked: rgb(64, 64, 64);
-    --normal2: rgba(255, 255, 255, 0.5);
-    --common: #37a915;
-    --common2: #37a91580;
-    --uncommon: #5580f3;
-    --uncommon2: #5580f380;
-    --rare: #a74192;
-    --rare2: #a7419280;
-    --epic: #ffb00f;
-    --epic2: #ffb00f80;
+    --Normal: #ffffff;
+    --Common: #36b80f;
+    --Uncommon: #3053ff;
+    --Rare: #c52ecf;
+    --Epic: #ffb00f;
     --Exotic: #ff6337;
-    --Exotic2: #ff633780;
-    --Divine: #f44336;
-    --Divine2: #f4433680;
-    --Error: rgb(255, 0, 0);
-    --Error2: rgba(255, 0, 0, 0.5);
-    --E1: rgb(164, 164, 164);
-    --E2: rgb(0, 164, 0);
-    --E3: rgb(0, 169, 114);
-    --E4: rgba(0, 164, 182, 1);
-    --E5: rgb(164, 0, 167);
-    --E6: rgba(164, 0, 0, 1);
+    --Legendary: #f44336;
+    --Divine: #ff0032;
+    --Error: #ff0000;
+    --E1: #a4a4a4;
+    --E2: #00a400;
+    --E3: #00a972;
+    --E4: #00a4b6;
+    --E5: #a400a7;
+    --E6: #a40000;
     --E7: #ffaaed;
-    --close: rgb(150, 3, 3);
-    --temp1: rgb(0, 0, 0);
-    --temp2: rgb(0, 0, 0);
-    --temp3: rgb(0, 0, 0);
 }
 
 .Enemy1 {
@@ -92,39 +60,39 @@
 }
 
 .Error {
-    color: var(--red) !important;
-    text-shadow: 0px 0px 3px var(--red) !important;
-    border-color: var(--red) !important;
+    color: var(--Error) !important;
+    text-shadow: 0px 0px 3px var(--Error) !important;
+    border-color: var(--Error) !important;
 }
 
 .Normal {
-    color: var(--white) !important;
-    text-shadow: 0px 0px 3px var(--white) !important;
-    border-color: var(--white) !important;
+    color: var(--Normal) !important;
+    text-shadow: 0px 0px 3px var(--Normal) !important;
+    border-color: var(--Normal) !important;
 }
 
 .Common {
-    color: var(--common) !important;
-    text-shadow: 0px 0px 3px var(--common) !important;
-    border-color: var(--common) !important;
+    color: var(--Common) !important;
+    text-shadow: 0px 0px 3px var(--Common) !important;
+    border-color: var(--Common) !important;
 }
 
 .Uncommon {
-    color: var(--uncommon) !important;
-    text-shadow: 0px 0px 3px var(--uncommon) !important;
-    border-color: var(--uncommon) !important;
+    color: var(--Uncommon) !important;
+    text-shadow: 0px 0px 3px var(--Uncommon) !important;
+    border-color: var(--Uncommon) !important;
 }
 
 .Rare {
-    color: var(--rare) !important;
-    text-shadow: 0px 0px 3px var(--rare) !important;
-    border-color: var(--rare) !important;
+    color: var(--Rare) !important;
+    text-shadow: 0px 0px 3px var(--Rare) !important;
+    border-color: var(--Rare) !important;
 }
 
 .Epic {
-    color: var(--epic) !important;
-    text-shadow: 0px 0px 3px var(--epic) !important;
-    border-color: var(--epic) !important;
+    color: var(--Epic) !important;
+    text-shadow: 0px 0px 3px var(--Epic) !important;
+    border-color: var(--Epic) !important;
 }
 
 .Exotic {
@@ -133,219 +101,117 @@
     border-color: var(--Exotic) !important;
 }
 
+.Legendary {
+    color: var(--Legendary) !important;
+    text-shadow: 0px 0px 3px var(--Legendary) !important;
+    border-color: var(--Legendary) !important;
+}
+
 .Divine {
     color: var(--Divine) !important;
     text-shadow: 0px 0px 3px var(--Divine) !important;
     border-color: var(--Divine) !important;
 }
 
-.green {
-    color: var(--common);
+.pw.label.Normal,
+.pw.label.Common,
+.pw.label.Uncommon,
+.pw.label.Rare,
+.pw.label.Epic,
+.pw.label.Exotic,
+.pw.label.Legendary,
+.pw.label.Divine {
+    position: relative;
+    background: transparent;
 }
 
-.menucolor {
-    color: var(--darkgrey);
-}
-
-.bleu {
-    color: var(--blue);
-}
-
-.rose {
-    color: var(--pink);
-}
-
-.violet {
-    color: var(--purple);
-}
-
-.vert {
-    color: var(--green) !important;
-    font-weight: bold;
-    text-shadow: 0px 0px .75rem var(--green) !important;
-    border-color: var(--green) !important;
-}
-
-.gris {
-    color: var(--grey);
-}
-
-.locked {
-    color: var(--green) !important;
-}
-
-.bold { font-weight: bold; }
-
-.rouge {
-    color: var(--red) !important;
-    border-color: var(--red) !important;
-}
-
-.jaune {
-    color: var(--yellow);
-}
-
-.orange {
-    color: var(--orange);
-}
-
-.blanc {
-    color: var(--white) ! important;
-}
-
-.noir {
-    color: var(--black);
-}
-
-.noir1 {
-    color: var(--black1);
-}
-
-.ShadowReset {
-    text-shadow: 0px 0px 0px transparent !important;
-}
-
-.Bar-Normal {
+.pw.label.Normal:after,
+.pw.label.Common:after,
+.pw.label.Uncommon:after,
+.pw.label.Rare:after,
+.pw.label.Epic:after,
+.pw.label.Exotic:after,
+.pw.label.Legendary:after,
+.pw.label.Divine:after {
+    content: "";
     position: absolute;
-    width: .5em;
     top: 0;
-    bottom: 0;
-    float: left;
-    background: var(--white) !important;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    opacity: 0.15;
 }
 
-.Bar-Common {
-    position: absolute;
-    width: .5em;
-    top: 0;
-    bottom: 0;
-    float: left;
-    background: var(--common) !important;
+.pw.label.Normal:after {
+    background: var(--Normal);
 }
 
-.Bar-Uncommon {
-    position: absolute;
-    width: .5em;
-    top: 0;
-    bottom: 0;
-    float: left;
-    background: var(--uncommon) !important;
+.pw.label.Common:after {
+    background: var(--Common);
 }
 
-.Bar-Rare {
-    position: absolute;
-    width: .5em;
-    top: 0;
-    bottom: 0;
-    float: left;
-    background: var(--rare) !important;
+.pw.label.Uncommon:after {
+    background: var(--Uncommon);
 }
 
-.Bar-Epic {
-    position: absolute;
-    width: .5em;
-    top: 0;
-    bottom: 0;
-    float: left;
-    background: var(--epic) !important;
+.pw.label.Rare:after {
+    background: var(--Rare);
 }
 
-.Bar-Exotic {
-    position: absolute;
-    width: .5em;
-    top: 0;
-    bottom: 0;
-    float: left;
-    background: var(--Exotic) !important;
+.pw.label.Epic:after {
+    background: var(--Epic);
 }
 
-.Bar-Divine {
-    position: absolute;
-    width: .5em;
-    top: 0;
-    bottom: 0;
-    float: left;
-    background: var(--Divine) !important;
+.pw.label.Exotic:after {
+    background: var(--Exotic);
 }
 
-.Bar-U {
-    position: absolute;
-    width: .5em;
-    top: 0;
-    bottom: 0;
-    float: left;
-    background: var(--green) !important;
+.pw.label.Legendary:after {
+    background: var(--Legendary);
 }
 
-.Bar-E {
-    position: absolute;
-    width: .5em;
-    top: 0;
-    bottom: 0;
-    float: left;
-    background: var(--Error) !important;
+.pw.label.Divine:after {
+    background: var(--Divine);
 }
 
-.Normal-Core {
-    background: linear-gradient(to right, var(--black) 0%, var(--normal2) 1em, var(--normal2) 25%, transparent 90%) !important;
+
+.pw.equipment>.content>.icon>img.Normal {
+    filter: drop-shadow(0px 0px 10px var(--Normal));
+    margin: 0;
 }
 
-.Common-Core {
-    background: linear-gradient(to right, var(--black) 0%, var(--common) 1em, var(--common2) 25%, transparent 90%) !important;
+.pw.equipment>.content>.icon>img.Common {
+    filter: drop-shadow(0px 0px 10px var(--Common));
+    margin: 0;
 }
 
-.Uncommon-Core {
-    background: linear-gradient(to right, var(--black) 0%, var(--uncommon) 1em, var(--uncommon2) 25%, transparent 90%) !important;
+.pw.equipment>.content>.icon>img.Uncommon {
+    filter: drop-shadow(0px 0px 10px var(--Uncommon));
+    margin: 0;
 }
 
-.Rare-Core {
-    background: linear-gradient(to right, var(--black) 0%, var(--rare) 1em, var(--rare2) 25%, transparent 90%) !important;
+.pw.equipment>.content>.icon>img.Rare {
+    filter: drop-shadow(0px 0px 10px var(--Rare));
+    margin: 0;
 }
 
-.Epic-Core {
-    background: linear-gradient(to right, var(--black) 0%, var(--epic) 1em, var(--epic2) 25%, transparent 90%) !important;
+.pw.equipment>.content>.icon>img.Epic {
+    filter: drop-shadow(0px 0px 10px var(--Epic));
+    margin: 0;
 }
 
-.Exotic-Core {
-    background: linear-gradient(to right, var(--black) 0%, var(--Exotic) 1em, var(--Exotic2) 25%, transparent 90%) !important;
+.pw.equipment>.content>.icon>img.Exotic {
+    filter: drop-shadow(0px 0px 10px var(--Exotic));
+    margin: 0;
 }
 
-.Divine-Core {
-    background: linear-gradient(to right, var(--black) 0%, var(--Divine) 1em, var(--Divine2) 25%, transparent 90%) !important;
+.pw.equipment>.content>.icon>img.Legendary {
+    filter: drop-shadow(0px 0px 10px var(--Legendary));
+    margin: 0;
 }
 
-.CoreClassE {
-    background: linear-gradient(to right, var(--black) 0%, var(--Error) 1em, var(--Error2) 25%, transparent 90%) !important;
-}
-
-.CoreShadow0 {
-    box-shadow: 0 1px 2rem 0 var(--normal2), 0rem 0rem 0rem 0.1rem var(--normal2) !important;
-}
-
-.CoreShadow1 {
-    box-shadow: 0 1px 2rem 0 var(--common), 0rem 0rem 0rem 0.1rem var(--common) !important;
-}
-
-.CoreShadow2 {
-    box-shadow: 0 1px 2rem 0 var(--uncommon), 0rem 0rem 0rem 0.1rem var(--uncommon) !important;
-}
-
-.CoreShadow3 {
-    box-shadow: 0 1px 2rem 0 var(--rare), 0rem 0rem 0rem 0.1rem var(--rare) !important;
-}
-
-.CoreShadow4 {
-    box-shadow: 0 1px 2rem 0 var(--epic), 0rem 0rem 0rem 0.1rem var(--epic) !important;
-}
-
-.CoreShadow5 {
-    box-shadow: 0 1px 2rem 0 var(--Exotic), 0rem 0rem 0rem 0.1rem var(--Exotic) !important;
-}
-
-.CoreShadow6 {
-    box-shadow: 0 1px 2rem 0 var(--Divine), 0rem 0rem 0rem 0.1rem var(--Divine) !important;
-}
-
-.CoreShadowE {
-    box-shadow: 0 1px 2rem 0 var(--Error), 0rem 0rem 0rem 0.1rem var(--Error) !important;
+.pw.equipment>.content>.icon>img.Divine {
+    filter: drop-shadow(0px 0px 10px var(--Divine));
+    margin: 0;
 }
