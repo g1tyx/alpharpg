@@ -11,23 +11,19 @@
     <meta content="Incremental Game by Purple Wizard" property="og:description" />
     <meta content="avatar34.jpg" property="og:image" />
     <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-<!--
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
--->
-<!--
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
--->
-    <link async href="css/vars.css?v=3.308" rel="stylesheet" />
-    <link async href="css/base.css?v=3.308" rel="stylesheet" />
-    <link async href="css/style.css?v=3.308" rel="stylesheet" />
-    <link async href="css/palette.css?v=3.308" rel="stylesheet" />
+    <link async href="css/vars.css?v=3.312" rel="stylesheet" />
+    <link async href="css/base.css?v=3.312" rel="stylesheet" />
+    <link async href="css/style.css?v=3.312" rel="stylesheet" />
+    <link async href="css/palette.css?v=3.312" rel="stylesheet" />
 </head>
 
 <body>
-<script src="chs.js?07071443"></script>
-<script src="https://cdn.jsdelivr.net/gh/g8hh/g8hh.github.io/zh/core.js"></script>
+<script src="chs.js?202106041511"></script>
+<script src="//g8hh.com/zh/core.js"></script>
     <div class="background" id="BACKGROUND"></div>
     <div class="pw page" id="GAME" style="display: none;">
         <div class="page-sidebar">
@@ -39,13 +35,11 @@
                     <div class="link" data-url="#" id="prestige"><i class="far fa-portal-enter"></i> Dimension</div>
                 </li>
                 <li data-menu="STATS">
-                    <div class="link" data-url="#" id="statistics"><i class="fas fa-clipboard list icon"></i>
-                        Statistics
+                    <div class="link" data-url="#" id="statistics"><i class="fas fa-clipboard list icon"></i> Statistics
                     </div>
                 </li>
                 <li data-menu="LEADERBOARD">
-                    <div class="link" data-url="#" id="leaderboard"><i class="fas fa-trophy icon"></i> Leaderboard
-                    </div>
+                    <div class="link" data-url="#" id="leaderboard"><i class="fas fa-trophy icon"></i> Leaderboard</div>
                 </li>
                 <li data-menu="SETTINGS">
                     <div class="link" data-url="#" id="settings"><i class="fas fa-cogs icon"></i> Settings</div>
@@ -68,7 +62,7 @@
                 <div class="pw segment yellow" id="NextCover"></div>
             </div>
             <div class="credits">
-                <div class="site-name" id="site-name">AlphaRPG</div>
+                <div class="game-title" id="game_title">AlphaRPG</div>
             </div>
         </div>
         <div class="page-content">
@@ -161,8 +155,7 @@
                     </div>
                     <div class="pw horizontal segments" id="EQUIPMENT">
                         <div class="pw segment">
-                            <div class="pw weapon grids">
-
+                            <div class="pw equipment-grid">
                                 <div id="MainWeapon" class="pw equipment">
                                     <div class="header"></div>
                                     <div class="content">
@@ -191,10 +184,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="pw segment">
-                            <div class="pw armor grids">
+
                                 <div id="Armor1" class="pw equipment">
                                     <div class="header"></div>
                                     <div class="content">
@@ -336,14 +326,14 @@
                         progress.
                         <br />The story will be reset and the difficulty will increase by 5%.
                     </div>
-                    <h4 class="pw horizontal divider">Benefits for each dimension</h4>
+                    <h4 class="pw horizontal divider">Benefits for each new dimension</h4>
                     <div class="pw inline green label">+50 maximum score</div>
                     <div class="pw inline green label">3% more experience</div>
                     <div class="pw inline green label">+2 inventory slots</div>
                     <div class="pw inline green label">Unlocking of the Mind Control (idle mode)</div>
                     <div class="pw fluid blue button" id="WTBTN"><i class="far fa-portal-enter"></i> Dimensional Rift
                     </div>
-                    <h3 class="pw horizontal divider"><i class="fal fa-arrow-alt-circle-up"></i> Dimensional Upgrades
+                    <h3 class="pw horizontal divider"><i class="fal fa-arrow-alt-circle-up"></i> Dimensional Bonuses
                     </h3>
                     <span class="pw label blue" id="ShardsNumber"></span>
                     <div id="Upgrades">
@@ -660,22 +650,24 @@
                     <i class="fas fa-map-marked-alt icon"></i> Exploration
                 </div>
             </div>
-            <div id="DIV-MISSIONS">
-                <div class="pw segments" id="MISSIONS-CURRENT"></div>
-                <div class="pw dropdown text-center">
-                    <h3 class="name">Fortresses</h3>
-                    <div class="content">
-                        <div id="MISSIONS-FORTRESSES"></div>
+            <div class="scroller">
+                <div id="DIV-MISSIONS">
+                    <div class="pw segments" id="MISSIONS-CURRENT"></div>
+                    <div class="pw dropdown text-center">
+                        <h3 class="name">Fortresses</h3>
+                        <div class="content">
+                            <div id="MISSIONS-FORTRESSES"></div>
+                        </div>
+                    </div>
+                    <div class="pw dropdown text-center" data-open="open">
+                        <h3 class="name" id="mcount"></h3>
+                        <div class="content">
+                            <div id="MISSIONS-COMPLETED"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="pw dropdown text-center" data-open="open">
-                    <h3 class="name" id="mcount"></h3>
-                    <div class="content">
-                        <div id="MISSIONS-COMPLETED"></div>
-                    </div>
+                <div class="pw segments" id="DIV-EXPLORE" style="display: none;">
                 </div>
-            </div>
-            <div class="pw segments" id="DIV-EXPLORE" style="display: none;">
             </div>
         </div>
     </div>
@@ -828,7 +820,7 @@
             <div class="text" id="notice-text"></div>
         </div>
     </div>
-    <script src="jquery-3.6.0.min.js" type="text/javascript"></script>
+<script src="//g8hh.com/static/js/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/7ebbff149a.js" crossorigin="anonymous"></script>
     <script src="libs/numeral.min.js" type="text/javascript"></script>
     <script src="libs/lodash.min.js" type="text/javascript"></script>
@@ -836,24 +828,32 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics-compat.js"></script>
-    <script src="js/functions.js?v=3.308" type="text/javascript"></script>
-    <script src="js/config.js?v=3.308" type="text/javascript"></script>
-    <script src="js/lang.js?v=3.308" type="text/javascript"></script>
-    <script src="js/stats.js?v=3.308" type="text/javascript"></script>
-    <script src="js/combat.js?v=3.308" type="text/javascript"></script>
-    <script src="js/inventory.js?v=3.308" type="text/javascript"></script>
-    <script src="js/dimension.js?v=3.308" type="text/javascript"></script>
-    <script src="js/missions.js?v=3.308" type="text/javascript"></script>
-    <script src="js/events.js?v=3.308" type="text/javascript"></script>
-    <script src="js/app.js?v=3.308" type="text/javascript"></script>
-    <script src="js/palette.js?v=3.308" type="text/javascript"></script>
+    <script src="js/functions.js?v=3.312" type="text/javascript"></script>
+    <script src="js/config.js?v=3.312" type="text/javascript"></script>
+    <script src="js/lang.js?v=3.312" type="text/javascript"></script>
+    <script src="js/stats.js?v=3.312" type="text/javascript"></script>
+    <script src="js/combat.js?v=3.312" type="text/javascript"></script>
+    <script src="js/inventory.js?v=3.312" type="text/javascript"></script>
+    <script src="js/dimension.js?v=3.312" type="text/javascript"></script>
+    <script src="js/missions.js?v=3.312" type="text/javascript"></script>
+    <script src="js/events.js?v=3.312" type="text/javascript"></script>
+    <script src="js/app.js?v=3.312" type="text/javascript"></script>
+    <script src="js/palette.js?v=3.312" type="text/javascript"></script>
     <!--客服 开始-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/g8hh/g8hh.github.io/static/css/kf.css" type="text/css" media="screen" charset="utf-8">
-<script src="https://cdn.jsdelivr.net/gh/g8hh/g8hh.github.io/static/js/kf.js"></script>
+<link rel="stylesheet" href="//g8hh.com/static/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//g8hh.com/static/js/kf.js"></script>
 <!-- 客服 结束 -->
 <!--站长统计-->
     <div style="display: none">
-        <script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1279902880&web_id=1279902880"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?dbb7ff142f4d4b68546c93b9cd6e9328";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
     </div>
 </body>
 
