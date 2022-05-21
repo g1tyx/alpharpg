@@ -1,0 +1,217 @@
+:root {
+    --Normal: #ffffff;
+    --Common: #36b80f;
+    --Uncommon: #3053ff;
+    --Rare: #c52ecf;
+    --Epic: #ffb00f;
+    --Exotic: #ff6337;
+    --Legendary: #f44336;
+    --Divine: #ff0032;
+    --Error: #ff0000;
+    --E1: #a4a4a4;
+    --E2: #00a400;
+    --E3: #00a972;
+    --E4: #00a4b6;
+    --E5: #a400a7;
+    --E6: #a40000;
+    --E7: #ffaaed;
+}
+
+.Enemy1 {
+    color: var(--E1) !important;
+    text-shadow: 0px 0px 3px var(--E1) !important;
+    border-color: var(--E1) !important;
+}
+
+.Enemy2 {
+    color: var(--E2) !important;
+    text-shadow: 0px 0px 3px var(--E2) !important;
+    border-color: var(--E2) !important;
+}
+
+.Enemy3 {
+    color: var(--E3) !important;
+    text-shadow: 0px 0px 3px var(--E3) !important;
+    border-color: var(--E3) !important;
+}
+
+.Enemy4 {
+    color: var(--E4) !important;
+    text-shadow: 0px 0px 3px var(--E4) !important;
+    border-color: var(--E4) !important;
+}
+
+.Enemy5 {
+    color: var(--E5) !important;
+    text-shadow: 0px 0px 3px var(--E5) !important;
+    border-color: var(--E5) !important;
+}
+
+.Enemy6 {
+    color: var(--E6) !important;
+    text-shadow: 0px 0px 3px var(--E6) !important;
+    border-color: var(--E6) !important;
+}
+
+.Enemy7 {
+    color: var(--E7) !important;
+    text-shadow: 0px 0px 3px var(--E7) !important;
+    border-color: var(--E7) !important;
+}
+
+.Error {
+    color: var(--Error) !important;
+    text-shadow: 0px 0px 3px var(--Error) !important;
+    border-color: var(--Error) !important;
+}
+
+.Normal {
+    color: var(--Normal) !important;
+    text-shadow: 0px 0px 3px var(--Normal) !important;
+    border-color: var(--Normal) !important;
+}
+
+.Common {
+    color: var(--Common) !important;
+    text-shadow: 0px 0px 3px var(--Common) !important;
+    border-color: var(--Common) !important;
+}
+
+.Uncommon {
+    color: var(--Uncommon) !important;
+    text-shadow: 0px 0px 3px var(--Uncommon) !important;
+    border-color: var(--Uncommon) !important;
+}
+
+.Rare {
+    color: var(--Rare) !important;
+    text-shadow: 0px 0px 3px var(--Rare) !important;
+    border-color: var(--Rare) !important;
+}
+
+.Epic {
+    color: var(--Epic) !important;
+    text-shadow: 0px 0px 3px var(--Epic) !important;
+    border-color: var(--Epic) !important;
+}
+
+.Exotic {
+    color: var(--Exotic) !important;
+    text-shadow: 0px 0px 3px var(--Exotic) !important;
+    border-color: var(--Exotic) !important;
+}
+
+.Legendary {
+    color: var(--Legendary) !important;
+    text-shadow: 0px 0px 3px var(--Legendary) !important;
+    border-color: var(--Legendary) !important;
+}
+
+.Divine {
+    color: var(--Divine) !important;
+    text-shadow: 0px 0px 3px var(--Divine) !important;
+    border-color: var(--Divine) !important;
+}
+
+.pw.label.Normal,
+.pw.label.Common,
+.pw.label.Uncommon,
+.pw.label.Rare,
+.pw.label.Epic,
+.pw.label.Exotic,
+.pw.label.Legendary,
+.pw.label.Divine {
+    position: relative;
+    background: transparent;
+}
+
+.pw.label.Normal:after,
+.pw.label.Common:after,
+.pw.label.Uncommon:after,
+.pw.label.Rare:after,
+.pw.label.Epic:after,
+.pw.label.Exotic:after,
+.pw.label.Legendary:after,
+.pw.label.Divine:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    opacity: 0.15;
+}
+
+.pw.label.Normal:after {
+    background: var(--Normal);
+}
+
+.pw.label.Common:after {
+    background: var(--Common);
+}
+
+.pw.label.Uncommon:after {
+    background: var(--Uncommon);
+}
+
+.pw.label.Rare:after {
+    background: var(--Rare);
+}
+
+.pw.label.Epic:after {
+    background: var(--Epic);
+}
+
+.pw.label.Exotic:after {
+    background: var(--Exotic);
+}
+
+.pw.label.Legendary:after {
+    background: var(--Legendary);
+}
+
+.pw.label.Divine:after {
+    background: var(--Divine);
+}
+
+
+.pw.equipment>.content>.icon>img.Normal {
+    filter: drop-shadow(0px 0px 10px var(--Normal));
+    margin: 0;
+}
+
+.pw.equipment>.content>.icon>img.Common {
+    filter: drop-shadow(0px 0px 10px var(--Common));
+    margin: 0;
+}
+
+.pw.equipment>.content>.icon>img.Uncommon {
+    filter: drop-shadow(0px 0px 10px var(--Uncommon));
+    margin: 0;
+}
+
+.pw.equipment>.content>.icon>img.Rare {
+    filter: drop-shadow(0px 0px 10px var(--Rare));
+    margin: 0;
+}
+
+.pw.equipment>.content>.icon>img.Epic {
+    filter: drop-shadow(0px 0px 10px var(--Epic));
+    margin: 0;
+}
+
+.pw.equipment>.content>.icon>img.Exotic {
+    filter: drop-shadow(0px 0px 10px var(--Exotic));
+    margin: 0;
+}
+
+.pw.equipment>.content>.icon>img.Legendary {
+    filter: drop-shadow(0px 0px 10px var(--Legendary));
+    margin: 0;
+}
+
+.pw.equipment>.content>.icon>img.Divine {
+    filter: drop-shadow(0px 0px 10px var(--Divine));
+    margin: 0;
+}
