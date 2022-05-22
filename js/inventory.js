@@ -107,12 +107,12 @@ const GenArmors = function () {
         let RELIC = "";
         let RELIC_ICON = "";
         if (Game.RELICS[ARMOR][1] !== 5) {
-            RELIC = "<i class='pw yellow fas fa-stars'></i> ";
+            RELIC = "<span class='text'><i class='pw yellow fas fa-stars'></i> ";
             RELIC_ICON = `<img class='pw centered mini image' src='${GET_ICON_ID("Relic", Game.RELICS[ARMOR][1])}'></div>`;
-            if (Game.RELICS[ARMOR][1] === 1) RELIC = RELIC + language[APP.LANG].RELICS[Game.RELICS[ARMOR][1]].split("[BONUS]").join(fix(Game.RELICS[ARMOR][2], 2));
-            else if (Game.RELICS[ARMOR][1] === 2) RELIC = RELIC + language[APP.LANG].RELICS[Game.RELICS[ARMOR][1]].split("[BONUS]").join(fix(Game.RELICS[ARMOR][2], 2));
-            else if (Game.RELICS[ARMOR][1] === 3) RELIC = RELIC + language[APP.LANG].RELICS[Game.RELICS[ARMOR][1]].split("[BONUS]").join(`<span class='${Game.RELICS[ARMOR][2]}'>${Game.RELICS[ARMOR][2]}</span>`);
-            else if (Game.RELICS[ARMOR][1] === 4) RELIC = RELIC + language[APP.LANG].RELICS[Game.RELICS[ARMOR][1]].split("[BONUS]").join(fix(Game.RELICS[ARMOR][2], 1));
+            if (Game.RELICS[ARMOR][1] === 1) RELIC = RELIC + language[APP.LANG].RELICS[Game.RELICS[ARMOR][1]].split("[BONUS]").join('' + fix(Game.RELICS[ARMOR][2], 2) + '</span>');
+            else if (Game.RELICS[ARMOR][1] === 2) RELIC = RELIC + language[APP.LANG].RELICS[Game.RELICS[ARMOR][1]].split("[BONUS]").join('' + fix(Game.RELICS[ARMOR][2], 2) + '</span>');
+            else if (Game.RELICS[ARMOR][1] === 3) RELIC = RELIC + language[APP.LANG].RELICS[Game.RELICS[ARMOR][1]].split("[BONUS]").join(`<span class='${Game.RELICS[ARMOR][2]}'>${Game.RELICS[ARMOR][2]}</span></span>`);
+            else if (Game.RELICS[ARMOR][1] === 4) RELIC = RELIC + language[APP.LANG].RELICS[Game.RELICS[ARMOR][1]].split("[BONUS]").join('' + fix(Game.RELICS[ARMOR][2], 1) + '</span>');
         }
 
         //DEFINE CONTENT

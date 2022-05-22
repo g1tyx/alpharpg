@@ -408,7 +408,7 @@ const SET_CURRENT_TASK = function () {
 };
 
 const DEFINE_BODY_ATTRIBUTES = function () {
-    $("#BACKGROUND").attr("style", `background: center / cover no-repeat url("images/Locations/${GLOBALS.LOCATIONS[Game.Location][6]}");`);
+    $("#BACKGROUND").attr("style", `background: center / cover no-repeat url("https://purplewizard.space/AlphaRPG/images/Locations/${GLOBALS.LOCATIONS[Game.Location][6]}");`);
     $("body").attr("style", `--ALPHA: ${Game.Theme};`);
 };
 
