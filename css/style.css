@@ -761,3 +761,11 @@ img {
 .pw.page .page-tabs .scroller {
     height: calc(100% - 40px);
 }
+
+.pw.equipment .description {
+    color: #bdbdbd;
+}
+
+.pw.equipment .description>.text {
+    color: #FFFFFF;
+}
