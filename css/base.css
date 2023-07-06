@@ -31,6 +31,7 @@
     align-items: center;
     justify-content: center;
     transition: visibility 0s ease 0s, background-color 250ms ease 0s;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -93,6 +94,7 @@
 }
 
 .pw.page {
+    position: relative;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -123,6 +125,10 @@
     border-radius: 5px;
     background: rgb(18, 19, 31);
     transition: all 0.2s ease 0s;
+}
+.page-content div[id^="DIV-"].pw.message.combat {
+    background: transparent;
+    padding: 0 10px;
 }
 
 .full-width {
@@ -156,6 +162,7 @@
     margin: 0.5rem;
     max-width: 100%;
     background-color: transparent;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -244,6 +251,7 @@
     color: rgb(var(--ALPHA));
     padding: 0px;
     transition: all 0.25s ease-in-out 0s;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -263,6 +271,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.85);
+    -webkit-user-select: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
 }
@@ -290,7 +299,7 @@
     display: table;
     white-space: nowrap;
     height: auto;
-    margin: 1rem 0px;
+    margin: 2px 0px;
     text-align: center;
 }
 
@@ -427,6 +436,22 @@
     border-left: none;
 }
 
+.pw.horizontal.dark.segments.header-segment>.segment {
+    display: flex;
+    height: 2.5em;
+    line-height: 16px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#namestat {
+    display: inline-flex;
+    align-content: center;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .pw.button {
     cursor: pointer;
     display: inline-block;
@@ -441,6 +466,7 @@
     padding: 0.5em 1em;
     border-radius: 5px;
     text-transform: none;
+    -webkit-user-select: none;
     user-select: none;
     transition: all 0.25s ease-in-out 0s, font-size 0s ease 0s;
 }
@@ -653,6 +679,7 @@
     align-items: center;
     justify-content: center;
     transition: visibility 0s ease 0s, background-color 250ms ease 0s;
+    -webkit-user-select: none;
     user-select: none;
     top: 0px !important;
     left: 0px !important;
@@ -796,7 +823,7 @@
 
 .pw.steps .step.completed>i::before {
     color: rgb(var(--ALPHA));
-    content: "ï€Œ";
+    content: "";
 }
 
 .pw.sticked.segments {
@@ -836,13 +863,14 @@
     font-family: "Font Awesome 5 Pro";
     font-weight: 900;
     line-height: 1;
-    content: "ï„…";
+    content: "";
     margin-right: 5px;
     transition: all 250ms linear 0s;
 }
 
 .pw.dropdown>.name {
     margin: 0.5em 0px 0px;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -852,7 +880,7 @@
 
 .pw.dropdown[data-open="open"]>.name::before {
     color: rgb(var(--ALPHA));
-    content: "ï„‡";
+    content: "";
 }
 
 .pw.dropdown>.content {
@@ -860,6 +888,7 @@
 }
 
 .pw.dropdown[data-open="open"]>.content {
+    position: relative;
     display: block;
 }
 
@@ -871,7 +900,7 @@
 .pw.segments.active {
     color: white;
     border-radius: 5px;
-    margin: 0.5em;
+    margin: 0 0.5em;
     background-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -906,11 +935,10 @@
 .pw.horizontal.segments>.segment.light {
     align-self: center;
     text-align: center;
-    line-height: 2.5em;
     vertical-align: middle;
     justify-content: center;
     white-space: nowrap;
-    height: 2.5em;
+    height: auto;
     padding: 0.5em 1em;
 }
 
@@ -928,7 +956,9 @@
     display: flex;
     text-overflow: ellipsis;
     overflow: hidden;
-    justify-content: left !important;
+    justify-content: flex-start !important;
+    align-content: center;
+    align-items: center;
 }
 
 .pw.segment.avatar img {
@@ -954,6 +984,7 @@
     padding: 0.5em 1em 0.5em 45px;
     border-radius: 5px;
     text-transform: none;
+    -webkit-user-select: none;
     user-select: none;
     transition: all 0.25s ease-in-out 0s, font-size 0s ease 0s;
     display: flex;
@@ -1009,13 +1040,13 @@
 }
 
 .pw.checkbox:not([data-check="checked"])>input::after {
-    content: "âœ–";
+    content: "✖";
     font-size: 18px;
 }
 
 .pw.checkbox[data-check="checked"]>input::after {
     display: block;
-    content: "âœ”";
+    content: "✔";
     font-size: 18px;
     text-align: center;
 }
@@ -1189,4 +1220,16 @@
 .pw.nostack.buttons .pw.button {
     font-size: 1rem;
     padding: 0.75em 1em;
+}
+
+.pw.horizontal.segments.dark:nth-child(2n) {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.pw.horizontal.segments.dark:first-child {
+    margin-top: 0.5em;
+}
+
+.pw.horizontal.segments.dark:last-child {
+    margin-bottom: 0.5em;
 }
